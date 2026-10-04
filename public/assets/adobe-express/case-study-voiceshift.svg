@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" fill="none">
+  <rect width="800" height="500" fill="#000000"/>
+
+  <!-- Architecture Blueprint Header -->
+  <text x="50" y="60" fill="rgba(255,255,255,0.3)" font-family="'JetBrains Mono', monospace" font-size="12" letter-spacing="0.1em">REAL-TIME VOIP // IN DEVELOPMENT</text>
+  <text x="50" y="95" fill="#FFFFFF" font-family="'Instrument Serif', serif" font-size="34">VoiceShift: Android App-to-App VoIP System</text>
+  <text x="50" y="125" fill="#eca8d6" font-family="'JetBrains Mono', monospace" font-size="12">KOTLIN · JETPACK COMPOSE · C++ · NDK · WEBRTC · FASTAPI</text>
+
+  <!-- Technical Audio Flow Box -->
+  <rect x="50" y="170" width="700" height="260" rx="8" fill="#000000" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+
+  <!-- Sub components -->
+  <g transform="translate(80, 200)">
+    <rect x="0" y="0" width="180" height="200" rx="6" fill="#000000" stroke="rgba(255,255,255,0.10)"/>
+    <text x="15" y="30" fill="#FFFFFF" font-family="'Instrument Serif', serif" font-size="18">01 / AUDIO CAPTURE</text>
+    <text x="15" y="60" fill="rgba(255,255,255,0.5)" font-family="'JetBrains Mono', monospace" font-size="11">• Oboe / AAudio buffer</text>
+    <text x="15" y="85" fill="rgba(255,255,255,0.5)" font-family="'JetBrains Mono', monospace" font-size="11">• PCM 16-bit 48kHz</text>
+    <text x="15" y="110" fill="rgba(255,255,255,0.5)" font-family="'JetBrains Mono', monospace" font-size="11">• Low-latency JNI bridge</text>
+    <text x="15" y="165" fill="#eca8d6" font-family="'JetBrains Mono', monospace" font-size="10">Android NDK Core</text>
+
+    <!-- Arrow -->
+    <path d="M195 100H220" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+
+    <rect x="230" y="0" width="200" height="200" rx="6" fill="#000000" stroke="rgba(255,255,255,0.10)"/>
+    <text x="15" y="30" fill="#FFFFFF" font-family="'Instrument Serif', serif" font-size="18">02 / DSP PROCESSING</text>
+    <text x="15" y="60" fill="rgba(255,255,255,0.5)" font-family="'JetBrains Mono', monospace" font-size="11">• Real-time DSP presets: ✓</text>
+    <text x="15" y="85" fill="rgba(255,255,255,0.5)" font-family="'JetBrains Mono', monospace" font-size="11">• Pitch &amp; formant shift</text>
+    <text x="15" y="110" fill="#eca8d6" font-family="'JetBrains Mono', monospace" font-size="11">• Custom neural voice: [IN PROGRESS]</text>
+    <text x="15" y="165" fill="rgba(255,255,255,0.3)" font-family="'JetBrains Mono', monospace" font-size="10">C++ Sound Engine</text>
+
+    <!-- Arrow -->
+    <path d="M445 100H470" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+
+    <rect x="480" y="0" width="160" height="200" rx="6" fill="#000000" stroke="rgba(255,255,255,0.10)"/>
+    <text x="15" y="30" fill="#FFFFFF" font-family="'Instrument Serif', serif" font-size="18">03 / TRANSPORT</text>
+    <text x="15" y="60" fill="rgba(255,255,255,0.5)" font-family="'JetBrains Mono', monospace" font-size="11">• WebRTC AudioTrack</text>
+    <text x="15" y="85" fill="rgba(255,255,255,0.5)" font-family="'JetBrains Mono', monospace" font-size="11">• Opus encoder</text>
+    <text x="15" y="110" fill="rgba(255,255,255,0.5)" font-family="'JetBrains Mono', monospace" font-size="11">• P2P SRTP streaming</text>
+    <text x="15" y="165" fill="#eca8d6" font-family="'JetBrains Mono', monospace" font-size="10">Sub-50ms Buffer</text>
+  </g>
+</svg>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" fill="none">
+  <rect width="800" height="500" fill="#000000"/>
+
+  <!-- Architecture Blueprint Header -->
+  <text x="50" y="60" fill="rgba(255,255,255,0.3)" font-family="'JetBrains Mono', monospace" font-size="12" letter-spacing="0.1em">SYSTEM ARCHITECTURE // PROTOTYPE</text>
+  <text x="50" y="95" fill="#FFFFFF" font-family="'Instrument Serif', serif" font-size="34">DriverLink Pro: 3-Sided Chauffeur Platform</text>
+  <text x="50" y="125" fill="#eca8d6" font-family="'JetBrains Mono', monospace" font-size="12">82 ROUTED SCREENS · 8-ROLE RBAC · REACT NATIVE &amp; EXPO</text>
+
+  <!-- 3 Sides Layout -->
+  <!-- Rider Side -->
+  <rect x="50" y="170" width="210" height="260" rx="8" fill="#000000" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+  <text x="70" y="205" fill="#FFFFFF" font-family="'Instrument Serif', serif" font-size="20">01 / RIDER APP</text>
+  <text x="70" y="235" fill="rgba(255,255,255,0.6)" font-family="'JetBrains Mono', monospace" font-size="11">• Scheduled Chauffeur Bookings</text>
+  <text x="70" y="260" fill="rgba(255,255,255,0.6)" font-family="'JetBrains Mono', monospace" font-size="11">• Tier-Based Vehicle Select</text>
+  <text x="70" y="285" fill="rgba(255,255,255,0.6)" font-family="'JetBrains Mono', monospace" font-size="11">• Real-Time Trip Tracking</text>
+  <text x="70" y="310" fill="rgba(255,255,255,0.6)" font-family="'JetBrains Mono', monospace" font-size="11">• In-App Chauffeur Chat</text>
+  <text x="70" y="390" fill="rgba(255,255,255,0.3)" font-family="'JetBrains Mono', monospace" font-size="10">24 CLIENT SCREENS</text>
+
+  <!-- Driver Side -->
+  <rect x="295" y="170" width="210" height="260" rx="8" fill="#000000" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+  <text x="315" y="205" fill="#FFFFFF" font-family="'Instrument Serif', serif" font-size="20">02 / CHAUFFEUR APP</text>
+  <text x="315" y="235" fill="rgba(255,255,255,0.6)" font-family="'JetBrains Mono', monospace" font-size="11">• Trip Acceptance Queue</text>
+  <text x="315" y="260" fill="rgba(255,255,255,0.6)" font-family="'JetBrains Mono', monospace" font-size="11">• Earnings &amp; Shift Metrics</text>
+  <text x="315" y="285" fill="rgba(255,255,255,0.6)" font-family="'JetBrains Mono', monospace" font-size="11">• Verified Document Vault</text>
+  <text x="315" y="310" fill="rgba(255,255,255,0.6)" font-family="'JetBrains Mono', monospace" font-size="11">• Status &amp; Duty Toggle</text>
+  <text x="315" y="390" fill="rgba(255,255,255,0.3)" font-family="'JetBrains Mono', monospace" font-size="10">28 DRIVER SCREENS</text>
+
+  <!-- Admin Side -->
+  <rect x="540" y="170" width="210" height="260" rx="8" fill="#000000" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+  <text x="560" y="205" fill="#FFFFFF" font-family="'Instrument Serif', serif" font-size="20">03 / ADMIN PORTAL</text>
+  <text x="560" y="235" fill="rgba(255,255,255,0.6)" font-family="'JetBrains Mono', monospace" font-size="11">• 8-Role Granular RBAC</text>
+  <text x="560" y="260" fill="rgba(255,255,255,0.6)" font-family="'JetBrains Mono', monospace" font-size="11">• Chauffeur Onboarding</text>
+  <text x="560" y="285" fill="rgba(255,255,255,0.6)" font-family="'JetBrains Mono', monospace" font-size="11">• Dispute &amp; Escalation Flow</text>
+  <text x="560" y="310" fill="rgba(255,255,255,0.6)" font-family="'JetBrains Mono', monospace" font-size="11">• Fleet Audit &amp; Compliance</text>
+  <text x="560" y="390" fill="rgba(255,255,255,0.3)" font-family="'JetBrains Mono', monospace" font-size="10">30 ADMIN SCREENS</text>
+</svg>
