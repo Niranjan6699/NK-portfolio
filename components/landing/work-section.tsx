@@ -721,15 +721,15 @@ export function WorkSection() {
           </div>
         </div>
 
-        {/* Project Cards Grid - Bulletproof 2-Column Responsive Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+        {/* Project Cards Grid - 7 Projects across 3 Rows */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {filteredProjects.map((project, index) => {
             const isFullWidth = index === 0 && activeFilter === "ALL";
             return (
               <div
                 key={project.id}
                 className={`group relative rounded-sm border border-transparent bg-black overflow-hidden hover:border-white/20 transition-all duration-300 flex flex-col justify-between ${
-                  isFullWidth ? "lg:col-span-2" : "col-span-1"
+                  isFullWidth ? "md:col-span-2 lg:col-span-3" : "col-span-1"
                 } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
                 style={{ transitionDelay: `${index * 80}ms` }}
               >
