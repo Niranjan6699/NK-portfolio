@@ -6,50 +6,50 @@ const capabilities = [
   {
     number: "01",
     title: "Mobile Engineering",
-    description: "Multi-screen mobile apps with clean role workflows, native bridges, and robust offline state.",
+    description: "Production mobile apps with clean role workflows, native bridges, and dependable offline caching.",
     stack: ["React Native", "Expo", "Kotlin", "Flutter"],
     metric: "82 Screens",
-    submetric: "DriverLink Pro & SugarScan AI",
+    submetric: "DriverLink & SugarScan",
   },
   {
     number: "02",
     title: "Web Systems",
-    description: "Responsive frontend architectures with React, TypeScript, and smooth UI animations.",
+    description: "High-performance web apps built with React & TypeScript, locked at fluid 60 FPS animations.",
     stack: ["React", "TypeScript", "Vite", "Tailwind CSS"],
     metric: "60 FPS",
-    submetric: "Fluid canvas & timeline rendering",
+    submetric: "Canvas & UI Rendering",
   },
   {
     number: "03",
     title: "Backend & API Architecture",
-    description: "Asynchronous REST APIs, relational schemas, and secure authentication boundaries in FastAPI and ASP.NET Core.",
+    description: "Fast asynchronous APIs, clean database schemas, and strict token-based authentication.",
     stack: ["FastAPI", "ASP.NET Core", "Spring Boot", "PostgreSQL"],
     metric: "Strict RBAC",
-    submetric: "Multi-role claims & refresh tokens",
+    submetric: "Token & Role Security",
   },
   {
     number: "04",
-    title: "AI Systems & Orchestration",
-    description: "Local vision and language models with Ollama, preserving privacy and eliminating cloud API bills.",
+    title: "AI Systems & Tooling",
+    description: "Private vision and language models running locally via Ollama with zero cloud API bills.",
     stack: ["Ollama", "Local Vision", "LLMs", "AI Tooling"],
     metric: "Zero Cloud Cost",
-    submetric: "Local Ollama model pipelines",
+    submetric: "Local SLM Pipelines",
   },
   {
     number: "05",
     title: "Real-Time Communication",
-    description: "Low-latency C++ audio processing routines for native Android with WebRTC streaming.",
+    description: "Low-latency C++ sound processing routines and real-time WebRTC audio streaming for Android.",
     stack: ["WebRTC", "C++", "Android NDK"],
     metric: "<50ms",
-    submetric: "Target audio ring buffer latency",
+    submetric: "Ring Buffer Latency",
   },
   {
     number: "06",
     title: "Product Engineering",
-    description: "End-to-end delivery from system architecture and interface design to deployment and verification.",
+    description: "Complete ownership from architecture and UI craft to tested, deployable software.",
     stack: ["Architecture", "UI Systems", "Deployment", "Verification"],
     metric: "100%",
-    submetric: "Verifiable functional code",
+    submetric: "Functional Code",
   },
 ];
 
@@ -95,7 +95,7 @@ export function FeaturesSection() {
               <p className={`text-lg md:text-xl text-muted-foreground leading-relaxed transition-all duration-1000 delay-200 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}>
-                Engineering across the entire software stack — from low-level C++ sound processing and Android NDK bindings to high-throughput cloud APIs and polished mobile interfaces.
+                Full-stack systems built for real-world speed — from low-level C++ audio engines to cloud APIs and fluid mobile apps.
               </p>
             </div>
           </div>

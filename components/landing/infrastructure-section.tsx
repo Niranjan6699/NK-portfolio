@@ -70,7 +70,7 @@ export function InfrastructureSection() {
               <p className={`mt-8 text-lg text-muted-foreground leading-relaxed max-w-xl font-sans transition-all duration-1000 delay-100 ${
                 isVisible ? "opacity-100" : "opacity-0"
               }`}>
-                Designing systems with explicit boundaries: peer-to-peer WebRTC audio paths, client-side RBAC authorization tables, and federated SPARQL semantic nodes that keep sensitive records private.
+                Built with clean boundaries: low-latency WebRTC streams, client-side role security, and private federated knowledge nodes.
               </p>
             </div>
           </div>
@@ -88,7 +88,7 @@ export function InfrastructureSection() {
                 <span className="text-xl md:text-2xl text-muted-foreground font-mono">active projects</span>
               </div>
               <p className="text-sm md:text-base text-muted-foreground max-w-md font-sans">
-                Engineered across Android native (Kotlin / C++ NDK), cross-platform mobile (React Native / Flutter), and modern web architectures.
+                Native Android Kotlin &amp; C++ NDK, cross-platform mobile, and reactive web runtimes.
               </p>
             </div>
           </div>

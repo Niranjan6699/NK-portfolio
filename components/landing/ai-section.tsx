@@ -23,35 +23,35 @@ export function AiSection() {
       step: "01",
       title: "Mobile Capture",
       tech: "React Native & Expo",
-      description: "Captures meal photos with on-device compression and attaches metabolic profile context.",
+      description: "Captures meal photos with instant on-device compression.",
     },
     {
       step: "02",
       title: "API Routing",
       tech: "FastAPI Gateway",
-      description: "Validates image payloads and routes asynchronous processing tasks without blocking.",
+      description: "FastAPI gateway routes async analysis without UI lag.",
     },
     {
       step: "03",
       title: "Local Vision Inference",
       tech: "Ollama Vision SLM",
-      description: "Quantized multimodal vision model segments food items and estimates glycemic load locally.",
+      description: "Local Ollama model parses ingredients & estimates carbs on-device.",
     },
     {
       step: "04",
       title: "Private Storage & Chat",
       tech: "Supabase & PostgreSQL",
-      description: "Encrypted meal logs and companion memory protected by PostgreSQL Row-Level Security.",
+      description: "Private glucose logs protected by PostgreSQL Row-Level Security.",
     },
   ];
 
   const generalPipeline = [
-    { step: "01", name: "User Interface", role: "Mobile or Web Client", desc: "Collects user input and device context." },
-    { step: "02", name: "API Gateway", role: "FastAPI Routing", desc: "Validates schema and handles authentication." },
-    { step: "03", name: "Context Grounding", role: "Prompt Architecture", desc: "Combines user history with task instructions." },
-    { step: "04", name: "Model Execution", role: "Local Ollama / SLMs", desc: "Runs deterministic inference locally." },
-    { step: "05", name: "Data Persistence", role: "PostgreSQL & Vector", desc: "Stores results securely with access control." },
-    { step: "06", name: "Client Stream", role: "Reactive UI Update", desc: "Returns structured results directly to the user." },
+    { step: "01", name: "User Interface", role: "Mobile / Web Client", desc: "Captures user input and device context." },
+    { step: "02", name: "API Gateway", role: "FastAPI Routing", desc: "Validates request payload and checks auth tokens." },
+    { step: "03", name: "Context Grounding", role: "Prompt Engine", desc: "Pairs user history with task instructions." },
+    { step: "04", name: "Model Execution", role: "Local Ollama", desc: "Runs deterministic models entirely on-device." },
+    { step: "05", name: "Data Persistence", role: "PostgreSQL & Vector", desc: "Stores results securely with strict user isolation." },
+    { step: "06", name: "Client Stream", role: "Reactive UI", desc: "Streams structured output directly to client." },
   ];
 
   return (
@@ -73,7 +73,7 @@ export function AiSection() {
 
           <div className="max-w-md w-full">
             <p className="text-base text-white/70 leading-relaxed font-sans mb-6">
-              Practical AI engineering focused on local execution, zero-token-cost pipelines, vision models, and dependable system boundaries.
+              Local-first AI without cloud token bills. Fast on-device vision and strict data privacy.
             </p>
             
             {/* Tab switch */}
