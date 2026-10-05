@@ -621,22 +621,22 @@ function ProjectBranchNode({
       {/* Horizontal Branch Connecting Line (from trunk to project) */}
       <div className={`hidden md:block absolute top-1/2 -translate-y-1/2 z-10 pointer-events-none transition-all duration-1000 ${
         isLeft 
-          ? "left-1/2 w-28 origin-left" 
-          : "right-1/2 w-28 origin-right"
+          ? "right-1/2 w-20 md:w-28 origin-right" 
+          : "left-1/2 w-20 md:w-28 origin-left"
       } ${isRevealed ? "opacity-100 scale-x-100" : "opacity-0 scale-x-0"}`}>
         <svg className="w-full h-8 overflow-visible" viewBox="0 0 120 30" preserveAspectRatio="none">
           <path
-            d={isLeft ? "M 0,15 L 45,15 L 60,5 L 85,25 L 120,15" : "M 120,15 L 75,15 L 60,5 L 35,25 L 0,15"}
+            d={isLeft ? "M 120,15 L 75,15 L 60,5 L 35,25 L 0,15" : "M 0,15 L 45,15 L 60,5 L 85,25 L 120,15"}
             fill="none"
             stroke="#eca8d6"
             strokeWidth="1.8"
             strokeDasharray="4 3"
           />
-          <circle cx={isLeft ? "120" : "0"} cy="15" r="2.5" fill="#eca8d6" />
+          <circle cx={isLeft ? "0" : "120"} cy="15" r="2.5" fill="#eca8d6" />
         </svg>
       </div>
 
-      {/* Project Content — Seamless, NO BOX, Pure Black Floating Canvas */}
+      {/* Project Content — Completely Borderless, Pure Black Floating Canvas */}
       <div className={`w-full md:w-[calc(50%-4.5rem)] pl-16 md:pl-0 transition-all duration-1000 ${
         isLeft ? "md:pr-10" : "md:pl-10"
       } ${
@@ -644,85 +644,68 @@ function ProjectBranchNode({
           ? "opacity-100 translate-y-0" 
           : "opacity-0 translate-y-16"
       }`}>
-        <div className="flex flex-col lg:flex-row items-center gap-6 group">
-          {/* Black Canvas Mount for Image */}
-          <div className="relative w-full lg:w-3/5 flex-shrink-0">
-            {/* Ambient Backlight Glow on Hover */}
-            <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-[#eca8d6]/15 via-[#f59e0b]/10 to-[#eca8d6]/15 blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+        <div className="flex flex-col lg:flex-row items-center gap-7 group">
+          {/* Seamless Floating 3D Artwork (Zero Box, Pure Black Canvas Edge Sync) */}
+          <div className="relative w-full lg:w-[62%] xl:w-[65%] flex-shrink-0">
+            {/* Ambient Backlight Atmosphere on Hover */}
+            <div className="absolute -inset-4 rounded-3xl bg-gradient-to-r from-[#eca8d6]/20 via-[#f59e0b]/15 to-[#eca8d6]/20 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
-            {/* The Black Canvas Frame */}
-            <div className="relative w-full aspect-[3/2] rounded-lg bg-black border border-white/10 group-hover:border-[#eca8d6]/40 p-2 sm:p-2.5 transition-all duration-500 shadow-[0_8px_32px_rgba(0,0,0,0.9)] flex flex-col justify-between overflow-hidden">
-              {/* Corner Registration Marks */}
-              <div className="absolute top-2 left-2 text-[8px] font-mono text-white/30 pointer-events-none select-none">┌</div>
-              <div className="absolute top-2 right-2 text-[8px] font-mono text-white/30 pointer-events-none select-none">┐</div>
-              <div className="absolute bottom-2 left-2 text-[8px] font-mono text-white/30 pointer-events-none select-none">└</div>
-              <div className="absolute bottom-2 right-2 text-[8px] font-mono text-white/30 pointer-events-none select-none">┘</div>
-
-              {/* Canvas Header Bar */}
-              <div className="relative z-10 flex items-center justify-between px-2 pt-0.5 pb-1">
-                <div className="flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#eca8d6] animate-pulse" />
-                  <span className="font-mono text-[8px] text-white/50 uppercase tracking-widest">
-                    CANVAS // {project.number}
-                  </span>
-                </div>
-                <span className="font-mono text-[8px] text-[#eca8d6]/80 uppercase tracking-wider">
-                  3D RENDER
-                </span>
-              </div>
-
-              {/* Inner Image Canvas Area */}
-              <div className="relative w-full h-[calc(100%-1.6rem)] rounded overflow-hidden bg-black flex items-center justify-center">
-                <img
-                  src={project.image}
-                  alt={project.name}
-                  className="w-full h-full object-contain object-center transition-all duration-700 ease-out group-hover:scale-105"
-                  loading="lazy"
-                />
-                {/* Subtle vignette fade */}
-                <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/50 via-transparent to-black/20" />
-              </div>
+            {/* Pure Black Canvas Image Stage — 100% Seamlessly Synchronized with Background */}
+            <div className="relative w-full aspect-[16/10] sm:aspect-[3/2] overflow-hidden bg-black flex items-center justify-center">
+              <img
+                src={project.image}
+                alt={project.name}
+                className="w-full h-full object-contain object-center transition-all duration-700 ease-out group-hover:scale-105 group-hover:drop-shadow-[0_0_45px_rgba(236,168,214,0.35)]"
+                loading="lazy"
+              />
+              {/* 4-Edge Canvas Black Fades for 100% Background Sync */}
+              <div className="absolute inset-x-0 top-0 h-10 sm:h-14 bg-gradient-to-b from-black via-black/60 to-transparent pointer-events-none" />
+              <div className="absolute inset-x-0 bottom-0 h-10 sm:h-14 bg-gradient-to-t from-black via-black/60 to-transparent pointer-events-none" />
+              <div className="absolute inset-y-0 left-0 w-10 sm:w-14 bg-gradient-to-r from-black via-black/60 to-transparent pointer-events-none" />
+              <div className="absolute inset-y-0 right-0 w-10 sm:w-14 bg-gradient-to-l from-black via-black/60 to-transparent pointer-events-none" />
+              {/* Perimeter elliptical black feathering */}
+              <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,transparent_50%,rgba(0,0,0,0.7)_85%,#000000_100%)]" />
             </div>
           </div>
 
-          {/* Project Info (No Box, clean elegant typography) */}
+          {/* Project Info (Enlarged Clean Typography, No Box) */}
           <div className="flex-1 w-full text-left">
             {/* Floating Pill Tag */}
-            <div className="flex items-center gap-2 mb-2">
-              <span className="px-2.5 py-0.5 rounded-full text-[9px] font-mono tracking-wider uppercase border border-[#eca8d6]/30 bg-black text-[#eca8d6]">
+            <div className="flex items-center gap-2.5 mb-2.5">
+              <span className="px-3 py-1 rounded-full text-[11px] sm:text-xs font-mono font-medium tracking-wider uppercase border border-[#eca8d6]/35 bg-black text-[#eca8d6]">
                 {project.number} // {project.statusBadge}
               </span>
-              <span className="text-[10px] font-mono text-white/40 uppercase tracking-wider">
+              <span className="text-xs sm:text-[13px] font-mono text-white/50 uppercase tracking-wider">
                 {project.categoryStatus.split("·")[1]?.trim() || "ENGINEERING"}
               </span>
             </div>
 
-            <h3 className="text-xl sm:text-2xl font-display text-white mb-2 group-hover:text-[#eca8d6] transition-colors">
+            <h3 className="text-2xl sm:text-3xl lg:text-[32px] font-display font-medium text-white mb-2.5 group-hover:text-[#eca8d6] transition-colors leading-tight">
               {project.name}
             </h3>
 
-            <p className="text-xs sm:text-[13px] text-white/60 leading-relaxed font-sans font-light mb-3">
+            <p className="text-sm sm:text-[15px] text-white/70 leading-relaxed font-sans font-light mb-3.5">
               {project.description}
             </p>
 
             {/* Tree-like zig-zag mini connector line */}
-            <div className="flex items-center gap-1 my-2 opacity-50 group-hover:opacity-90 transition-opacity">
-              <svg className="w-36 h-2 text-[#eca8d6]/50 overflow-visible" viewBox="0 0 160 8" preserveAspectRatio="none">
+            <div className="flex items-center gap-1 my-2.5 opacity-60 group-hover:opacity-100 transition-opacity">
+              <svg className="w-40 h-2.5 text-[#eca8d6]/60 overflow-visible" viewBox="0 0 160 8" preserveAspectRatio="none">
                 <path
                   d="M 0,4 L 35,4 L 42,1 L 52,7 L 60,4 L 110,4 L 116,1 L 124,7 L 130,4 L 160,4"
                   fill="none"
                   stroke="currentColor"
-                  strokeWidth="1"
+                  strokeWidth="1.2"
                 />
-                <circle cx="47" cy="4" r="1.5" fill="#eca8d6" />
-                <circle cx="120" cy="4" r="1.5" fill="#eca8d6" />
+                <circle cx="47" cy="4" r="1.8" fill="#eca8d6" />
+                <circle cx="120" cy="4" r="1.8" fill="#eca8d6" />
               </svg>
             </div>
 
             {/* Tech stack badges */}
             <div className="flex flex-wrap gap-1.5 mb-4">
               {project.stack.map((t) => (
-                <span key={t} className="px-2 py-0.5 text-[9px] font-mono rounded bg-white/[0.04] border border-white/10 text-white/60">
+                <span key={t} className="px-2.5 py-1 text-[10px] sm:text-[11px] font-mono rounded bg-white/[0.05] border border-white/10 text-white/70">
                   {t}
                 </span>
               ))}
@@ -732,10 +715,10 @@ function ProjectBranchNode({
             <div>
               <Button
                 onClick={() => onSelect(project)}
-                className="rounded-full font-mono text-xs px-4 py-1.5 bg-white text-black hover:bg-[#eca8d6] hover:text-black transition-all flex items-center gap-2 shadow-lg h-8"
+                className="rounded-full font-mono text-xs sm:text-sm px-5 py-2 bg-white text-black hover:bg-[#eca8d6] hover:text-black font-medium transition-all flex items-center gap-2 shadow-lg h-9 sm:h-10"
               >
                 <span>Explore Case Study</span>
-                <ChevronRight className="w-3 h-3" />
+                <ChevronRight className="w-3.5 h-3.5" />
               </Button>
             </div>
           </div>
