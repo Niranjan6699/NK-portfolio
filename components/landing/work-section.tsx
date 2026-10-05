@@ -20,6 +20,7 @@ export interface ProjectData {
   id: string;
   number: string;
   name: string;
+  image: string;
   categoryStatus: string;
   statusBadge: "PROTOTYPE" | "IN DEVELOPMENT" | "COURSEWORK" | "INTERVIEW" | "COURSEWORK / INTERVIEW";
   description: string;
@@ -101,6 +102,7 @@ export const projects: ProjectData[] = [
     id: "driverlink-pro",
     number: "01",
     name: "DriverLink Pro",
+    image: "/images/work-driverlink.jpg",
     categoryStatus: "Prototype · Mobility Platform",
     statusBadge: "PROTOTYPE",
     description: "Three-sided chauffeur platform across 82 routed screens with 8-role RBAC security.",
@@ -167,6 +169,7 @@ export const projects: ProjectData[] = [
     id: "sugarscan-ai",
     number: "02",
     name: "SugarScan AI",
+    image: "/images/work-sugarscan.jpg",
     categoryStatus: "In Development · AI Health Product",
     statusBadge: "IN DEVELOPMENT",
     description: "Local-first AI nutrition tracker running quantized vision SLMs via Ollama with zero cloud fees.",
@@ -239,6 +242,7 @@ export const projects: ProjectData[] = [
     id: "voiceshift",
     number: "03",
     name: "VoiceShift",
+    image: "/images/work-voiceshift.jpg",
     categoryStatus: "In Development · Real-Time Audio / VoIP",
     statusBadge: "IN DEVELOPMENT",
     description: "Real-time in-call voice converter with <50ms C++ audio DSP engine over WebRTC.",
@@ -305,6 +309,7 @@ export const projects: ProjectData[] = [
     id: "medgrid-nexus",
     number: "04",
     name: "MedGrid Nexus",
+    image: "/images/work-medgraph.jpg",
     categoryStatus: "Prototype · Federated Health Tech",
     statusBadge: "PROTOTYPE",
     description: "Federated health research network querying hospital nodes with zero raw patient data pooling.",
@@ -372,6 +377,7 @@ export const projects: ProjectData[] = [
     id: "fashion-marketplace",
     number: "05",
     name: "Fashion Marketplace",
+    image: "/images/work-threads.jpg",
     categoryStatus: "In Development · E-Commerce Platform",
     statusBadge: "IN DEVELOPMENT",
     description: "Triple-role multi-vendor commerce app with instant role switching and clean CQRS.",
@@ -437,6 +443,7 @@ export const projects: ProjectData[] = [
     id: "rfid-mattrack",
     number: "06",
     name: "RFID MatTrack",
+    image: "/images/work-rfid.jpg",
     categoryStatus: "Coursework / Interview · Systems Simulation",
     statusBadge: "COURSEWORK / INTERVIEW",
     description: "Virtual UHF RFID reader simulation modeling tag discovery, RSSI signals, and duplicate filtering.",
@@ -500,6 +507,7 @@ export const projects: ProjectData[] = [
     id: "concurrent-bank-lab",
     number: "07",
     name: "Concurrent Bank Lab",
+    image: "/images/work-bank.jpg",
     categoryStatus: "Coursework · Systems & Concurrency",
     statusBadge: "COURSEWORK",
     description: "High-volume multithreaded banking lab verifying atomic transfers and deadlock-free lock ordering.",
@@ -635,35 +643,42 @@ export function WorkSection() {
                 } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
                 style={{ transitionDelay: `${index * 80}ms` }}
               >
-                {/* Real Architecture Blueprint (Ultra-compact Typography) */}
-                <ProjectArchitectureBlueprint blueprint={project.blueprint} number={project.number} />
+                {/* 3D Visual Art Showcase */}
+                <div className="relative w-full aspect-[16/10] overflow-hidden bg-black/60 border-b border-white/[0.08]">
+                  <img
+                    src={project.image}
+                    alt={project.name}
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                    loading="lazy"
+                  />
+                  {/* Subtle edge atmospheric gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent pointer-events-none" />
+                  
+                  {/* Floating Number & Status Badge */}
+                  <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5">
+                    <span className="px-2 py-0.5 rounded-sm text-[8px] font-mono tracking-wider uppercase bg-black/85 backdrop-blur-md border border-white/15 text-white">
+                      <span className="text-[#eca8d6] font-semibold mr-1">{project.number}</span>
+                      <span className="text-white/60">// {project.statusBadge}</span>
+                    </span>
+                  </div>
+                </div>
 
-                {/* Content Area - Compact, Sleek & Focused */}
+                {/* Content Area - 75% Streamlined Typography */}
                 <div className="p-3 sm:p-3.5 flex-1 flex flex-col justify-between">
                   <div>
-                    <h3 className="text-base sm:text-lg font-display text-[#F5F5F5] mb-1 group-hover:text-white transition-colors duration-200">
+                    <h3 className="text-sm sm:text-base font-display text-white mb-1 group-hover:text-[#eca8d6] transition-colors duration-200">
                       {project.name}
                     </h3>
 
-                    {/* Concise natural description */}
-                    <p className="text-[11px] text-white/[0.65] leading-snug font-sans font-light mb-2">
+                    {/* Concise 1-line description */}
+                    <p className="text-[11px] text-white/60 leading-snug font-sans font-light mb-2 line-clamp-2">
                       {project.description}
                     </p>
 
-                    {/* Key Contributions / Features */}
-                    <div className="mb-2 space-y-0.5">
-                      {project.keyFeatures.map((feat, i) => (
-                        <div key={i} className="flex items-start gap-1.5 text-[10px] text-white/[0.55] font-sans">
-                          <Check className="w-2.5 h-2.5 text-[#eca8d6] mt-0.5 shrink-0 opacity-70" />
-                          <span>{feat}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Tech Badges */}
-                    <div className="flex flex-wrap gap-1 mb-3">
-                      {project.stack.map((t) => (
-                        <span key={t} className="px-1.5 py-0.5 text-[8px] font-mono rounded-sm bg-white/[0.02] border border-white/[0.07] text-white/[0.45]">
+                    {/* Minimal Tech Badges */}
+                    <div className="flex flex-wrap gap-1 mb-2">
+                      {project.stack.slice(0, 3).map((t) => (
+                        <span key={t} className="px-1.5 py-0.5 text-[8px] font-mono rounded-sm bg-white/[0.03] border border-white/[0.08] text-white/50">
                           {t}
                         </span>
                       ))}
@@ -671,15 +686,15 @@ export function WorkSection() {
                   </div>
 
                   {/* Bottom Action CTA */}
-                  <div className="pt-2 border-t border-transparent group-hover:border-white/[0.07] transition-colors duration-300 flex items-center justify-between">
-                    <span className="text-[9px] font-mono text-white/[0.35] uppercase tracking-wider">
-                      {project.hasDeepCaseStudy ? "FULL SPEC" : "SUMMARY"}
+                  <div className="pt-2 border-t border-white/[0.06] flex items-center justify-between">
+                    <span className="text-[9px] font-mono text-white/40 uppercase tracking-wider">
+                      {project.categoryStatus.split("·")[1]?.trim() || "ENGINEERING"}
                     </span>
                     <Button
                       onClick={() => setSelectedProject(project)}
                       className="rounded-sm font-mono text-[10px] px-2.5 py-0.5 bg-white text-black hover:bg-white/90 transition-all flex items-center gap-1 h-6"
                     >
-                      <span>{project.ctaText}</span>
+                      <span>Case Study</span>
                       <ChevronRight className="w-2.5 h-2.5" />
                     </Button>
                   </div>
@@ -714,6 +729,15 @@ export function WorkSection() {
             {/* Modal Content - 8 Required Sections */}
             <div className="p-8 md:p-12 space-y-12 text-white">
               
+              {/* Visual Showcase Banner */}
+              <div className="w-full aspect-[21/9] max-h-80 overflow-hidden rounded-sm border border-white/10 bg-black">
+                <img
+                  src={selectedProject.image}
+                  alt={selectedProject.name}
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
+
               {/* Title & Graphic */}
               <div>
                 <span className="text-xs font-mono text-[#eca8d6] uppercase tracking-widest">
