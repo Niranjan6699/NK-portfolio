@@ -598,7 +598,73 @@ export function WorkSection() {
 
   return (
     <section id="work" ref={sectionRef} className="relative py-28 lg:py-36 bg-black text-white overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+      {/* Organic Tree-Branch & Zig-Zag Connecting Vector Network */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden select-none opacity-40">
+        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="treeRootGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#eca8d6" stopOpacity="0.5" />
+              <stop offset="40%" stopColor="#f59e0b" stopOpacity="0.3" />
+              <stop offset="75%" stopColor="#eca8d6" stopOpacity="0.45" />
+              <stop offset="100%" stopColor="#eca8d6" stopOpacity="0.15" />
+            </linearGradient>
+            <filter id="sakuraGlow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="3.5" result="blur" />
+              <feComposite in="SourceGraphic" in2="blur" operator="over" />
+            </filter>
+          </defs>
+
+          {/* Tree Trunk & Main Branch - Weaving down behind the project cards */}
+          <path
+            d="M 40,60 Q 200,120 420,90 T 780,140 T 1140,110 T 1440,160"
+            fill="none"
+            stroke="url(#treeRootGrad)"
+            strokeWidth="1.6"
+            filter="url(#sakuraGlow)"
+          />
+
+          {/* Zig-Zag Branch 1: Connecting across Row 1 */}
+          <path
+            d="M 90,160 L 200,230 L 170,300 L 330,340 L 410,270 L 530,370 L 660,300 L 780,400 L 910,330 L 1040,420 L 1180,350 L 1340,440"
+            fill="none"
+            stroke="#eca8d6"
+            strokeOpacity="0.3"
+            strokeWidth="1.2"
+            strokeDasharray="4 4"
+          />
+
+          {/* Tree Root Branch 2: Mid-section connecting Row 1 & Row 2 */}
+          <path
+            d="M 0,440 Q 260,390 520,460 T 960,430 T 1440,490"
+            fill="none"
+            stroke="url(#treeRootGrad)"
+            strokeWidth="1.4"
+            strokeDasharray="6 3"
+          />
+
+          {/* Zig-Zag Branch 2: Connecting across Row 2 */}
+          <path
+            d="M 60,540 L 180,480 L 290,560 L 420,490 L 550,590 L 680,510 L 810,600 L 940,530 L 1070,610 L 1200,540 L 1380,630"
+            fill="none"
+            stroke="#eca8d6"
+            strokeOpacity="0.25"
+            strokeWidth="1.2"
+          />
+
+          {/* Tree Nodes & Glowing Cherry Blossom Buds at Junction Points */}
+          <circle cx="200" cy="230" r="3.5" fill="#eca8d6" className="animate-pulse" />
+          <circle cx="410" cy="270" r="3" fill="#f59e0b" />
+          <circle cx="530" cy="370" r="4" fill="#eca8d6" className="animate-pulse" />
+          <circle cx="780" cy="400" r="3.5" fill="#f59e0b" className="animate-pulse" />
+          <circle cx="1040" cy="420" r="4" fill="#eca8d6" />
+          <circle cx="290" cy="560" r="3.5" fill="#eca8d6" className="animate-pulse" />
+          <circle cx="680" cy="510" r="4" fill="#f59e0b" className="animate-pulse" />
+          <circle cx="940" cy="530" r="3.5" fill="#eca8d6" />
+          <circle cx="1200" cy="540" r="4" fill="#eca8d6" className="animate-pulse" />
+        </svg>
+      </div>
+
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
         
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
@@ -631,20 +697,19 @@ export function WorkSection() {
           </div>
         </div>
 
-        {/* Project Cards Grid - 7 Projects across Exactly 2 Rows */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {filteredProjects.map((project, index) => {
-            const isHero = index === 0 && activeFilter === "ALL";
-            return (
-              <div
-                key={project.id}
-                className={`group relative rounded-sm border border-transparent bg-black overflow-hidden hover:border-white/20 transition-all duration-300 flex flex-col justify-between ${
-                  isHero ? "md:col-span-2 lg:col-span-2" : "col-span-1"
-                } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-                style={{ transitionDelay: `${index * 80}ms` }}
-              >
-                {/* 3D Visual Art Showcase */}
-                <div className="relative w-full aspect-[16/10] overflow-hidden bg-black/60 border-b border-white/[0.08]">
+        {/* Project Cards Grid - Uniform Identical Sizing across all 7 projects */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 xl:gap-5">
+          {filteredProjects.map((project, index) => (
+            <div
+              key={project.id}
+              className={`group relative rounded-sm border border-white/[0.09] bg-[#0c0c0e]/95 backdrop-blur-sm overflow-hidden hover:border-[#eca8d6]/40 hover:shadow-[0_8px_30px_rgba(236,168,214,0.12)] transition-all duration-300 flex flex-col justify-between col-span-1 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
+              style={{ transitionDelay: `${index * 80}ms` }}
+            >
+              {/* Light Black Canvas Frame */}
+              <div className="p-2 pb-0">
+                <div className="relative w-full aspect-[16/10] overflow-hidden rounded-sm bg-[#121216] border border-white/[0.08] group-hover:border-white/[0.18] transition-colors">
                   <img
                     src={project.image}
                     alt={project.name}
@@ -652,56 +717,78 @@ export function WorkSection() {
                     loading="lazy"
                   />
                   {/* Subtle edge atmospheric gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent pointer-events-none" />
                   
                   {/* Floating Number & Status Badge */}
-                  <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5">
+                  <div className="absolute top-2 left-2 flex items-center gap-1.5">
                     <span className="px-2 py-0.5 rounded-sm text-[8px] font-mono tracking-wider uppercase bg-black/85 backdrop-blur-md border border-white/15 text-white">
                       <span className="text-[#eca8d6] font-semibold mr-1">{project.number}</span>
                       <span className="text-white/60">// {project.statusBadge}</span>
                     </span>
                   </div>
-                </div>
 
-                {/* Content Area - 75% Streamlined Typography */}
-                <div className="p-3 sm:p-3.5 flex-1 flex flex-col justify-between">
-                  <div>
-                    <h3 className="text-sm sm:text-base font-display text-white mb-1 group-hover:text-[#eca8d6] transition-colors duration-200">
-                      {project.name}
-                    </h3>
-
-                    {/* Concise 1-line description */}
-                    <p className="text-[11px] text-white/60 leading-snug font-sans font-light mb-2 line-clamp-2">
-                      {project.description}
-                    </p>
-
-                    {/* Minimal Tech Badges */}
-                    <div className="flex flex-wrap gap-1 mb-2">
-                      {project.stack.slice(0, 3).map((t) => (
-                        <span key={t} className="px-1.5 py-0.5 text-[8px] font-mono rounded-sm bg-white/[0.03] border border-white/[0.08] text-white/50">
-                          {t}
-                        </span>
-                      ))}
-                    </div>
+                  {/* Canvas Registration Crosshair Corner Marks */}
+                  <div className="absolute top-1.5 right-2 text-white/30 text-[9px] font-mono pointer-events-none select-none">
+                    +
                   </div>
-
-                  {/* Bottom Action CTA */}
-                  <div className="pt-2 border-t border-white/[0.06] flex items-center justify-between">
-                    <span className="text-[9px] font-mono text-white/40 uppercase tracking-wider">
-                      {project.categoryStatus.split("·")[1]?.trim() || "ENGINEERING"}
-                    </span>
-                    <Button
-                      onClick={() => setSelectedProject(project)}
-                      className="rounded-sm font-mono text-[10px] px-2.5 py-0.5 bg-white text-black hover:bg-white/90 transition-all flex items-center gap-1 h-6"
-                    >
-                      <span>Case Study</span>
-                      <ChevronRight className="w-2.5 h-2.5" />
-                    </Button>
+                  <div className="absolute bottom-1.5 right-2 text-white/30 text-[9px] font-mono pointer-events-none select-none">
+                    +
                   </div>
                 </div>
               </div>
-            );
-          })}
+
+              {/* Content Area - 75% Streamlined Typography with Tree-like Zig-Zag line */}
+              <div className="p-3 sm:p-3.5 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 className="text-sm sm:text-base font-display text-white mb-1 group-hover:text-[#eca8d6] transition-colors duration-200">
+                    {project.name}
+                  </h3>
+
+                  {/* Concise 1-line description */}
+                  <p className="text-[11px] text-white/60 leading-snug font-sans font-light mb-2 line-clamp-2">
+                    {project.description}
+                  </p>
+
+                  {/* Tree-like zig-zag connecting line */}
+                  <div className="flex items-center gap-1 my-2 opacity-50 group-hover:opacity-90 transition-opacity">
+                    <svg className="w-full h-2 text-[#eca8d6]/50 overflow-visible" viewBox="0 0 160 8" preserveAspectRatio="none">
+                      <path
+                        d="M 0,4 L 35,4 L 42,1 L 52,7 L 60,4 L 110,4 L 116,1 L 124,7 L 130,4 L 160,4"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1"
+                      />
+                      <circle cx="47" cy="4" r="1.5" fill="#eca8d6" />
+                      <circle cx="120" cy="4" r="1.5" fill="#eca8d6" />
+                    </svg>
+                  </div>
+
+                  {/* Minimal Tech Badges */}
+                  <div className="flex flex-wrap gap-1 mb-2">
+                    {project.stack.slice(0, 3).map((t) => (
+                      <span key={t} className="px-1.5 py-0.5 text-[8px] font-mono rounded-sm bg-white/[0.03] border border-white/[0.08] text-white/50">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Bottom Action CTA */}
+                <div className="pt-2 border-t border-white/[0.06] flex items-center justify-between">
+                  <span className="text-[9px] font-mono text-white/40 uppercase tracking-wider">
+                    {project.categoryStatus.split("·")[1]?.trim() || "ENGINEERING"}
+                  </span>
+                  <Button
+                    onClick={() => setSelectedProject(project)}
+                    className="rounded-sm font-mono text-[10px] px-2.5 py-0.5 bg-white text-black hover:bg-white/90 transition-all flex items-center gap-1 h-6"
+                  >
+                    <span>Case Study</span>
+                    <ChevronRight className="w-2.5 h-2.5" />
+                  </Button>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
