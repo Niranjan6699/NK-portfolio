@@ -645,16 +645,44 @@ function ProjectBranchNode({
           : "opacity-0 translate-y-16"
       }`}>
         <div className="flex flex-col lg:flex-row items-center gap-6 group">
-          {/* Floating 3D Artwork (Zero Box / Zero Border / Pure Black Floating Island) */}
-          <div className="relative w-full lg:w-3/5 aspect-[3/2] overflow-hidden rounded-lg bg-black flex-shrink-0">
-            <img
-              src={project.image}
-              alt={project.name}
-              className="w-full h-full object-contain object-center transition-all duration-700 ease-out group-hover:scale-105 group-hover:drop-shadow-[0_0_40px_rgba(236,168,214,0.35)]"
-              loading="lazy"
-            />
-            {/* Seamless edge blend so island melts into background */}
-            <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/60 via-transparent to-black/20" />
+          {/* Black Canvas Mount for Image */}
+          <div className="relative w-full lg:w-3/5 flex-shrink-0">
+            {/* Ambient Backlight Glow on Hover */}
+            <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-[#eca8d6]/15 via-[#f59e0b]/10 to-[#eca8d6]/15 blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+
+            {/* The Black Canvas Frame */}
+            <div className="relative w-full aspect-[3/2] rounded-lg bg-black border border-white/10 group-hover:border-[#eca8d6]/40 p-2 sm:p-2.5 transition-all duration-500 shadow-[0_8px_32px_rgba(0,0,0,0.9)] flex flex-col justify-between overflow-hidden">
+              {/* Corner Registration Marks */}
+              <div className="absolute top-2 left-2 text-[8px] font-mono text-white/30 pointer-events-none select-none">┌</div>
+              <div className="absolute top-2 right-2 text-[8px] font-mono text-white/30 pointer-events-none select-none">┐</div>
+              <div className="absolute bottom-2 left-2 text-[8px] font-mono text-white/30 pointer-events-none select-none">└</div>
+              <div className="absolute bottom-2 right-2 text-[8px] font-mono text-white/30 pointer-events-none select-none">┘</div>
+
+              {/* Canvas Header Bar */}
+              <div className="relative z-10 flex items-center justify-between px-2 pt-0.5 pb-1">
+                <div className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#eca8d6] animate-pulse" />
+                  <span className="font-mono text-[8px] text-white/50 uppercase tracking-widest">
+                    CANVAS // {project.number}
+                  </span>
+                </div>
+                <span className="font-mono text-[8px] text-[#eca8d6]/80 uppercase tracking-wider">
+                  3D RENDER
+                </span>
+              </div>
+
+              {/* Inner Image Canvas Area */}
+              <div className="relative w-full h-[calc(100%-1.6rem)] rounded overflow-hidden bg-black flex items-center justify-center">
+                <img
+                  src={project.image}
+                  alt={project.name}
+                  className="w-full h-full object-contain object-center transition-all duration-700 ease-out group-hover:scale-105"
+                  loading="lazy"
+                />
+                {/* Subtle vignette fade */}
+                <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/50 via-transparent to-black/20" />
+              </div>
+            </div>
           </div>
 
           {/* Project Info (No Box, clean elegant typography) */}
