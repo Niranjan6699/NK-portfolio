@@ -5,13 +5,28 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { name: "Home",        href: "#hero"         },
-  { name: "About",       href: "#about"        },
-  { name: "Work",        href: "#work"         },
-  { name: "AI",          href: "#ai"           },
-  { name: "Products",    href: "#products"     },
-  { name: "Experience",  href: "#experience"   },
-  { name: "Contact",     href: "#contact"      },
+  { num: "01", name: "About", href: "#about" },
+  { num: "02", name: "Capabilities", href: "#capabilities", hideOnMd: true },
+  { num: "03", name: "Work", href: "#work" },
+  { num: "04", name: "AI", href: "#ai" },
+  { num: "05", name: "Architecture", href: "#infra" },
+  { num: "07", name: "Stack", href: "#technology", hideOnMd: true },
+  { num: "09", name: "Products", href: "#products" },
+  { num: "10", name: "Experience", href: "#experience" },
+];
+
+const mobileSections = [
+  { num: "01", name: "About & Philosophy", href: "#about" },
+  { num: "02", name: "Core Capabilities", href: "#capabilities" },
+  { num: "03", name: "Featured Work", href: "#work" },
+  { num: "04", name: "Applied AI", href: "#ai" },
+  { num: "05", name: "Architecture", href: "#infra" },
+  { num: "06", name: "Verified Benchmarks", href: "#metrics" },
+  { num: "07", name: "Production Stack", href: "#technology" },
+  { num: "08", name: "Reliability & Security", href: "#security" },
+  { num: "09", name: "Products & Ventures", href: "#products" },
+  { num: "10", name: "Experience & Milestones", href: "#experience" },
+  { num: "11", name: "Contact & Collaboration", href: "#contact" },
 ];
 
 export function Navigation() {
@@ -55,15 +70,20 @@ export function Navigation() {
             </div>
           </a>
 
-          {/* Desktop Navigation - Minimalist Inline Links */}
-          <div className="hidden md:flex items-center gap-7 lg:gap-8">
+          {/* Desktop Navigation - Minimalist Inline Links with Page Numbers */}
+          <div className="hidden md:flex items-center gap-4 lg:gap-5 xl:gap-6">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-xs uppercase tracking-widest font-mono text-white/60 hover:text-white transition-colors duration-200 py-1"
+                className={`group items-baseline gap-1 text-[11px] xl:text-xs uppercase tracking-wider font-mono text-white/60 hover:text-white transition-colors duration-200 py-1 ${
+                  link.hideOnMd ? "hidden lg:flex" : "flex"
+                }`}
               >
-                {link.name}
+                <span className="text-[#eca8d6]/50 group-hover:text-[#eca8d6] transition-colors font-mono text-[9px]">
+                  {link.num}
+                </span>
+                <span>{link.name}</span>
               </a>
             ))}
           </div>
@@ -72,9 +92,12 @@ export function Navigation() {
           <div className="hidden md:flex items-center gap-4">
             <a 
               href="#contact" 
-              className="text-xs font-mono uppercase tracking-wider text-white/60 hover:text-white transition-colors"
+              className="group flex items-baseline gap-1 text-xs font-mono uppercase tracking-wider text-white/60 hover:text-white transition-colors"
             >
-              Contact
+              <span className="text-[#eca8d6]/50 group-hover:text-[#eca8d6] transition-colors font-mono text-[9px]">
+                11
+              </span>
+              <span>Contact</span>
             </a>
             <Button
               asChild
@@ -108,24 +131,27 @@ export function Navigation() {
           isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
-        <div className="flex flex-col gap-6 py-6 border-t border-white/10">
-          {navLinks.map((link) => (
+        <div className="flex flex-col gap-2 py-4 border-t border-white/10 max-h-[calc(100vh-100px)] overflow-y-auto">
+          {mobileSections.map((section) => (
             <a
-              key={link.name}
-              href={link.href}
+              key={section.num}
+              href={section.href}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="text-lg uppercase tracking-wider font-mono text-white/80 hover:text-white transition-colors"
+              className="flex items-center gap-3 py-2 text-sm uppercase tracking-wider font-mono text-white/80 hover:text-white transition-colors border-b border-white/[0.04]"
             >
-              {link.name}
+              <span className="text-[#eca8d6] font-mono text-xs font-semibold">
+                {section.num} //
+              </span>
+              <span>{section.name}</span>
             </a>
           ))}
-          <div className="pt-6 border-t border-white/10 flex flex-col gap-4">
+          <div className="pt-4 flex flex-col gap-3">
             <Button
               asChild
-              className="w-full bg-white text-black hover:bg-white/90 rounded-sm font-mono text-xs uppercase tracking-wider h-11"
+              className="w-full bg-white text-black hover:bg-white/90 rounded-sm font-mono text-xs uppercase tracking-wider h-10"
             >
               <a href="#work" onClick={() => setIsMobileMenuOpen(false)}>
-                View Work
+                View Work (03)
               </a>
             </Button>
           </div>

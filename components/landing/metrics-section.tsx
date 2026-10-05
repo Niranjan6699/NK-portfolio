@@ -176,7 +176,7 @@ export function MetricsSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-28 lg:py-36 overflow-hidden bg-background">
+    <section id="metrics" ref={sectionRef} className="relative py-28 lg:py-36 overflow-hidden bg-background">
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="mb-16 lg:mb-20">
@@ -184,7 +184,7 @@ export function MetricsSection() {
             <div className="flex items-center gap-4 mb-6">
               <span className="flex items-center gap-2 px-3 py-1 bg-[#eca8d6]/10 text-[#eca8d6] text-xs font-mono rounded">
                 <span className="w-2 h-2 rounded-full bg-[#eca8d6] animate-pulse" />
-                VERIFIED BENCHMARKS
+                06 // VERIFIED BENCHMARKS
               </span>
               <span className="text-xs font-mono text-muted-foreground">
                 {time ? `${time.toLocaleTimeString("en-GB")} IST · Saveetha University` : ""}

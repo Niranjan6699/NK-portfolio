@@ -58,7 +58,7 @@ export function CtaSection() {
               {/* Left content */}
               <div className="flex-1 max-w-2xl">
                 <span className="inline-flex items-center gap-3 text-xs md:text-sm font-mono text-white/[0.42] mb-6 uppercase tracking-wider">
-                  08 // Contact &amp; Availability
+                  11 // Direct Collaboration &amp; Contact
                 </span>
 
                 <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-display tracking-tight mb-6 leading-[1.04] text-[#F5F5F5]">

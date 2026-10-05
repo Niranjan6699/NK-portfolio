@@ -64,7 +64,7 @@ export function SecuritySection() {
           <span className={`inline-flex items-center gap-4 text-xs md:text-sm font-mono text-muted-foreground mb-6 uppercase tracking-wider transition-all duration-700 ${
             isVisible ? "opacity-100" : "opacity-0"
           }`}>
-            07 // Engineering Principles &amp; Reliability
+            08 // Engineering Principles &amp; Reliability
           </span>
           
           <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-display tracking-tight leading-[1.04] mb-6 transition-all duration-1000 ${

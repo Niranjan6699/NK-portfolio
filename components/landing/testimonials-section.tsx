@@ -83,7 +83,7 @@ export function TestimonialsSection() {
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-16">
           <div>
             <span className="inline-flex items-center gap-3 text-xs md:text-sm font-mono text-white/50 mb-4 uppercase tracking-wider">
-              07 // Experience &amp; Academic Background
+              10 // Experience &amp; Milestones
             </span>
             <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-display text-white transition-all duration-1000 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"

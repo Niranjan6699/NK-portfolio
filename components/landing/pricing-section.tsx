@@ -75,7 +75,7 @@ export function PricingSection() {
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
           <div className="max-w-3xl">
             <span className="inline-flex items-center gap-3 text-xs md:text-sm font-mono text-white/50 mb-4 uppercase tracking-wider">
-              05 // Products &amp; Ventures
+              09 // Products &amp; Venture Suite
             </span>
             <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-[50px] font-display tracking-tight leading-[1.04] text-white transition-all duration-1000 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"

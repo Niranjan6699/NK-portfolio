@@ -44,48 +44,48 @@ export interface ProjectData {
 function ProjectArchitectureBlueprint({ blueprint, number }: { blueprint: ProjectBlueprint; number: string }) {
   const isFourCol = blueprint.blocks.length === 4;
   return (
-    <div className="relative w-full bg-black p-3 sm:p-4 select-text">
+    <div className="relative w-full bg-black p-2.5 sm:p-3 select-text">
       {/* Blueprint Header */}
-      <div className="flex flex-wrap items-center justify-between gap-2 mb-2 pb-1.5">
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="text-[9px] font-mono tracking-wider uppercase text-white/60">
+      <div className="flex flex-wrap items-center justify-between gap-1 mb-1 pb-1">
+        <div className="flex flex-wrap items-center gap-1.5">
+          <span className="text-[8px] font-mono tracking-wider uppercase text-white/50">
             {blueprint.badge}
           </span>
-          <span className="hidden sm:inline font-mono text-[10px] text-[#eca8d6] tracking-wider">
+          <span className="hidden sm:inline font-mono text-[9px] text-[#eca8d6] tracking-wider">
             {blueprint.subtitle}
           </span>
         </div>
-        <span className="font-display text-lg text-white/30 group-hover:text-white/60 transition-colors">
+        <span className="font-display text-sm sm:text-base text-white/30 group-hover:text-white/60 transition-colors">
           {number}
         </span>
       </div>
 
       {/* Blueprint Blocks Grid */}
-      <div className={`grid gap-2.5 ${
+      <div className={`grid gap-1.5 ${
         isFourCol
-          ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
+          ? "grid-cols-2 lg:grid-cols-4"
           : "grid-cols-1 sm:grid-cols-3"
       }`}>
         {blueprint.blocks.map((block) => (
           <div
             key={block.tag}
-            className="p-1.5 sm:p-2 flex flex-col justify-between"
+            className="p-1 sm:p-1.5 flex flex-col justify-between"
           >
             <div>
-              <div className="font-display text-xs sm:text-sm text-white mb-1.5 tracking-tight">
+              <div className="font-display text-[11px] sm:text-xs text-white mb-0.5 tracking-tight truncate">
                 {block.tag}
               </div>
-              <ul className="space-y-1 mb-2">
+              <ul className="space-y-0.5 mb-1">
                 {block.items.map((item, i) => (
-                  <li key={i} className="text-[10px] sm:text-[11px] font-mono text-white/65 flex items-start gap-1 leading-tight">
-                    <span className="text-[#eca8d6] shrink-0 mt-0.5">•</span>
+                  <li key={i} className="text-[9px] sm:text-[10px] font-mono text-white/60 flex items-start gap-1 leading-tight">
+                    <span className="text-[#eca8d6] shrink-0">•</span>
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
             {block.footer && (
-              <div className="pt-1 mt-1 text-[9px] font-mono text-white/35 uppercase tracking-wider">
+              <div className="pt-0.5 mt-0.5 text-[8px] font-mono text-white/30 uppercase tracking-wider">
                 {block.footer}
               </div>
             )}
@@ -103,46 +103,30 @@ export const projects: ProjectData[] = [
     name: "DriverLink Pro",
     categoryStatus: "Prototype · Mobility Platform",
     statusBadge: "PROTOTYPE",
-    description: "Three-sided chauffeur platform across riders, drivers, and admins with 82 mobile screens and strict role access.",
-    stack: ["React Native", "Expo", "TypeScript", "Vite", "GSAP", "React Three Fiber"],
+    description: "Three-sided chauffeur platform across 82 routed screens with 8-role RBAC security.",
+    stack: ["React Native", "Expo", "TypeScript", "R3F"],
     keyFeatures: [
       "82 routed screens across 3 distinct apps",
-      "8-role client permission hierarchy",
-      "Decoupled mock engine for instant validation",
+      "Granular 8-role client permission model",
     ],
     blueprint: {
-      badge: "SYSTEM ARCHITECTURE // PROTOTYPE",
-      subtitle: "82 ROUTED SCREENS · 8-ROLE RBAC · REACT NATIVE & EXPO",
+      badge: "ARCHITECTURE // PROTOTYPE",
+      subtitle: "82 SCREENS · 8-ROLE RBAC · EXPO",
       blocks: [
         {
-          tag: "01 / RIDER APP",
-          items: [
-            "Scheduled Chauffeur Bookings",
-            "Tier-Based Vehicle Select",
-            "Real-Time Trip Tracking",
-            "In-App Chauffeur Chat",
-          ],
-          footer: "24 CLIENT SCREENS",
+          tag: "01 / RIDER",
+          items: ["Scheduled Bookings", "Live Trip Tracking"],
+          footer: "24 SCREENS",
         },
         {
-          tag: "02 / CHAUFFEUR APP",
-          items: [
-            "Trip Acceptance Queue",
-            "Earnings & Shift Metrics",
-            "Verified Document Vault",
-            "Status & Duty Toggle",
-          ],
-          footer: "28 DRIVER SCREENS",
+          tag: "02 / CHAUFFEUR",
+          items: ["Trip Acceptance Queue", "Shift Earnings Ledger"],
+          footer: "28 SCREENS",
         },
         {
-          tag: "03 / ADMIN PORTAL",
-          items: [
-            "8-Role Granular RBAC",
-            "Chauffeur Onboarding",
-            "Dispute & Escalation Flow",
-            "Fleet Audit & Compliance",
-          ],
-          footer: "30 ADMIN SCREENS",
+          tag: "03 / ADMIN",
+          items: ["8-Role Granular RBAC", "Fleet Compliance Flow"],
+          footer: "30 SCREENS",
         },
       ],
     },
@@ -185,52 +169,35 @@ export const projects: ProjectData[] = [
     name: "SugarScan AI",
     categoryStatus: "In Development · AI Health Product",
     statusBadge: "IN DEVELOPMENT",
-    description: "Private AI nutrition tracker combining local on-device vision models with secure encrypted health logs.",
-    stack: ["React Native", "Expo", "FastAPI", "Supabase", "Ollama", "GitHub Actions"],
+    description: "Local-first AI nutrition tracker running quantized vision SLMs via Ollama with zero cloud fees.",
+    stack: ["React Native", "FastAPI", "Ollama", "Supabase"],
     keyFeatures: [
-      "On-device vision analysis with zero cloud fees",
-      "Encrypted glucose timelines via Row-Level Security",
-      "Automated CI/CD build & lint testing",
+      "On-device vision with zero cloud API bills",
+      "Encrypted glucose logs via Supabase RLS",
     ],
     blueprint: {
-      badge: "HEALTH TECH PIPELINE // IN DEVELOPMENT",
-      subtitle: "REACT NATIVE · FASTAPI · OLLAMA VISION · SUPABASE",
+      badge: "AI PIPELINE // IN DEV",
+      subtitle: "EXPO · FASTAPI · OLLAMA",
       blocks: [
         {
           tag: "01. CAPTURE",
-          items: [
-            "Meal / Label Scan",
-            "Voice Query Audio",
-            "React Native / Expo Client",
-          ],
-          footer: "CLIENT INGESTION",
+          items: ["Meal Photo Scan", "Client Ingest"],
+          footer: "EXPO CLIENT",
         },
         {
-          tag: "02. API ROUTER",
-          items: [
-            "Payload Validation",
-            "Async Task Dispatch",
-            "FastAPI (Python) Gateway",
-          ],
-          footer: "ASYNC DISPATCH",
+          tag: "02. ROUTER",
+          items: ["Async Dispatch", "Payload Validation"],
+          footer: "FASTAPI GATEWAY",
         },
         {
           tag: "03. INFERENCE",
-          items: [
-            "Vision LLM Parsing",
-            "Glycemic Impact Est.",
-            "Ollama Local SLM",
-          ],
-          footer: "LOCAL ENGINE",
+          items: ["Vision SLM", "Glycemic Estimate"],
+          footer: "OLLAMA ENGINE",
         },
         {
           tag: "04. STORE",
-          items: [
-            "Encrypted Glucose Log",
-            "Companion Dialogue State",
-            "Supabase (PostgreSQL)",
-          ],
-          footer: "ROW-LEVEL SECURITY",
+          items: ["Encrypted Log", "RLS Security"],
+          footer: "SUPABASE",
         },
       ],
     },
@@ -274,43 +241,30 @@ export const projects: ProjectData[] = [
     name: "VoiceShift",
     categoryStatus: "In Development · Real-Time Audio / VoIP",
     statusBadge: "IN DEVELOPMENT",
-    description: "Real-time in-call voice converter for Android with a low-latency C++ audio engine over WebRTC.",
-    stack: ["Kotlin", "Jetpack Compose", "C++", "Android NDK", "WebRTC", "FastAPI"],
+    description: "Real-time in-call voice converter with <50ms C++ audio DSP engine over WebRTC.",
+    stack: ["Kotlin", "Compose", "C++ NDK", "WebRTC"],
     keyFeatures: [
       "Sub-50ms target audio ring buffer latency",
-      "Live pitch & formant DSP presets",
       "Encrypted peer-to-peer WebRTC streaming",
     ],
     blueprint: {
-      badge: "REAL-TIME VOIP // IN DEVELOPMENT",
-      subtitle: "KOTLIN · JETPACK COMPOSE · C++ · NDK · WEBRTC · FASTAPI",
+      badge: "REAL-TIME VOIP // IN DEV",
+      subtitle: "KOTLIN · C++ NDK · WEBRTC",
       blocks: [
         {
-          tag: "01 / AUDIO CAPTURE",
-          items: [
-            "Oboe / AAudio Ring Buffer",
-            "PCM 16-bit 48kHz Stream",
-            "Low-Latency JNI Bridge",
-          ],
-          footer: "ANDROID NDK CORE",
+          tag: "01 / AUDIO",
+          items: ["Oboe Ring Buffer", "Low-Latency JNI"],
+          footer: "NDK CORE",
         },
         {
-          tag: "02 / DSP PROCESSING",
-          items: [
-            "Real-Time DSP Presets: ✓",
-            "Pitch & Formant Shift",
-            "Neural Voice: [TRAINING]",
-          ],
-          footer: "C++ 20 SOUND ENGINE",
+          tag: "02 / DSP",
+          items: ["Pitch & Formant Shift", "DSP Presets"],
+          footer: "C++ 20 ENGINE",
         },
         {
-          tag: "03 / TRANSPORT",
-          items: [
-            "WebRTC AudioTrack Integration",
-            "Low-Bitrate Opus Encoder",
-            "Encrypted Peer-to-Peer SRTP",
-          ],
-          footer: "SUB-50MS BUFFER",
+          tag: "03 / STREAM",
+          items: ["WebRTC AudioTrack", "Encrypted SRTP"],
+          footer: "<50MS BUFFER",
         },
       ],
     },
@@ -353,43 +307,30 @@ export const projects: ProjectData[] = [
     name: "MedGrid Nexus",
     categoryStatus: "Prototype · Federated Health Tech",
     statusBadge: "PROTOTYPE",
-    description: "Federated clinical research network querying hospital nodes without pooling private patient data.",
-    stack: ["Android Compose", "Kotlin", "Spring Boot", "Apache Jena TDB2", "SPARQL", "Java RMI"],
+    description: "Federated health research network querying hospital nodes with zero raw patient data pooling.",
+    stack: ["Compose", "Spring Boot", "Jena TDB2", "SPARQL"],
     keyFeatures: [
       "Zero centralized patient records",
       "Federated SPARQL 1.1 semantic queries",
-      "JWT zero-trust node authentication",
     ],
     blueprint: {
-      badge: "FEDERATED HEALTH SYSTEMS // PROTOTYPE",
-      subtitle: "ANDROID COMPOSE · SPRING BOOT · APACHE JENA TDB2 · SPARQL · RMI",
+      badge: "FEDERATED HEALTH // PROTOTYPE",
+      subtitle: "SPRING BOOT · JENA · SPARQL",
       blocks: [
         {
-          tag: "CLINIC NODE A",
-          items: [
-            "Local Apache Jena TDB2",
-            "Ontological Triplestore",
-            "Local Patient Records",
-          ],
-          footer: "RAW DATA NEVER LEAVES",
+          tag: "CLINIC NODE",
+          items: ["Apache Jena TDB2", "Local Triplestore"],
+          footer: "ZERO DATA LEAK",
         },
         {
-          tag: "FEDERATED RMI HUB",
-          items: [
-            "SPARQL Query Planner",
-            "JWT Zero-Trust Authentication",
-            "Spring Boot Coordinator",
-          ],
-          footer: "FEDERATED COORDINATION",
+          tag: "FEDERATED HUB",
+          items: ["SPARQL Planner", "JWT Zero-Trust"],
+          footer: "COORDINATOR",
         },
         {
-          tag: "RESEARCH NODE B",
-          items: [
-            "Federated Diagnostic Query",
-            "Aggregated Knowledge Graph",
-            "Jetpack Compose Client",
-          ],
-          footer: "PRIVACY-PRESERVING RESULT",
+          tag: "RESEARCH NODE",
+          items: ["Diagnostic Query", "Aggregated Graph"],
+          footer: "SECURE RESULT",
         },
       ],
     },
@@ -433,43 +374,30 @@ export const projects: ProjectData[] = [
     name: "Fashion Marketplace",
     categoryStatus: "In Development · E-Commerce Platform",
     statusBadge: "IN DEVELOPMENT",
-    description: "Triple-role fashion commerce app for creators and shoppers, featuring instant role switching and clean CQRS.",
-    stack: ["Flutter", "ASP.NET Core", "EF Core", "PostgreSQL", "JWT", "Razorpay Mock"],
+    description: "Triple-role multi-vendor commerce app with instant role switching and clean CQRS.",
+    stack: ["Flutter", "ASP.NET Core", "EF Core", "PostgreSQL"],
     keyFeatures: [
       "Customer, seller & admin in one Flutter client",
       "Clean architecture with MediatR CQRS",
-      "Abstracted payment gateway ready for Razorpay",
     ],
     blueprint: {
-      badge: "MULTI-VENDOR COMMERCE // IN DEVELOPMENT",
-      subtitle: "FLUTTER · ASP.NET CORE · EF CORE · POSTGRESQL · CQRS",
+      badge: "COMMERCE // IN DEV",
+      subtitle: "FLUTTER · ASP.NET CORE · CQRS",
       blocks: [
         {
-          tag: "01 / BOUTIQUE APP",
-          items: [
-            "Inventory SKU Management",
-            "Order Dispatch & Tracking",
-            "Vendor Earnings Ledger",
-          ],
-          footer: "FLUTTER MOBILE CLIENT",
+          tag: "01 / BOUTIQUE",
+          items: ["SKU Management", "Vendor Ledger"],
+          footer: "MOBILE CLIENT",
         },
         {
           tag: "02 / STOREFRONT",
-          items: [
-            "Dynamic Role Switching",
-            "Filtered Apparel Catalog",
-            "Abstracted Mock Checkout",
-          ],
-          footer: "CROSS-PLATFORM MOBILE",
+          items: ["Role Switching", "Apparel Catalog"],
+          footer: "CROSS-PLATFORM",
         },
         {
-          tag: "03 / BACKEND CORE",
-          items: [
-            "MediatR CQRS Architecture",
-            "EF Core Code-First Migrations",
-            "Abstracted Razorpay Gateway",
-          ],
-          footer: "POSTGRESQL + EF CORE",
+          tag: "03 / BACKEND",
+          items: ["MediatR CQRS", "PostgreSQL + EF"],
+          footer: "CLEAN ARCH",
         },
       ],
     },
@@ -511,43 +439,30 @@ export const projects: ProjectData[] = [
     name: "RFID MatTrack",
     categoryStatus: "Coursework / Interview · Systems Simulation",
     statusBadge: "COURSEWORK / INTERVIEW",
-    description: "Virtual UHF RFID reader simulation modeling tag discovery, RSSI signals, and duplicate de-bouncing.",
-    stack: ["React Native", "iOS", "FastAPI", "Python", "AsyncIO"],
+    description: "Virtual UHF RFID reader simulation modeling tag discovery, RSSI signals, and duplicate filtering.",
+    stack: ["React Native", "iOS", "FastAPI", "Python AsyncIO"],
     keyFeatures: [
       "Hardware-free EPC Gen2 tag simulation",
-      "Client-side de-bouncing at 500+ tags/sec",
-      "Socket heartbeat & automated reconnect",
+      "Client-side duplicate filter at 500+ tags/sec",
     ],
     blueprint: {
-      badge: "SYSTEMS SIMULATION // COURSEWORK / INTERVIEW",
-      subtitle: "REACT NATIVE · FASTAPI · PYTHON ASYNCIO · WEBSOCKETS",
+      badge: "SIMULATION // COURSEWORK",
+      subtitle: "REACT NATIVE · FASTAPI · ASYNCIO",
       blocks: [
         {
           tag: "01 / SIMULATOR",
-          items: [
-            "Hardware-Free Tag Simulation",
-            "EPC Gen2 Collision Generator",
-            "Antenna Attenuation Modeling",
-          ],
+          items: ["Hardware-Free Sim", "EPC Gen2 Stream"],
           footer: "PYTHON ASYNCIO",
         },
         {
           tag: "02 / PIPELINE",
-          items: [
-            "500+ Tags/Sec Throughput",
-            "Client-Side Duplicate Filter",
-            "Simulated Connection Heartbeat",
-          ],
-          footer: "SUB-MS FILTERING",
+          items: ["500+ Tags/Sec", "Duplicate Filter"],
+          footer: "SUB-MS FILTER",
         },
         {
-          tag: "03 / TERMINAL UI",
-          items: [
-            "Trusted Binding Protocol",
-            "Live RSSI Signal Meter",
-            "Duplicate Aggregation Table",
-          ],
-          footer: "REACT NATIVE IOS",
+          tag: "03 / UI",
+          items: ["Live RSSI Meter", "Tag Aggregation"],
+          footer: "IOS CLIENT",
         },
       ],
     },
@@ -588,42 +503,29 @@ export const projects: ProjectData[] = [
     categoryStatus: "Coursework · Systems & Concurrency",
     statusBadge: "COURSEWORK",
     description: "High-volume multithreaded banking lab verifying atomic transfers and deadlock-free lock ordering.",
-    stack: ["Java 17", "Multithreading", "ReentrantLock", "JDBC", "JUnit 5"],
+    stack: ["Java 17", "ReentrantLock", "JDBC", "JUnit 5"],
     keyFeatures: [
       "Deadlock-free lock ordering across threads",
-      "10,000+ transfers verified with zero race conditions",
-      "Automated test suites with JUnit 5 & JDBC",
+      "10,000+ atomic transfers with zero race conditions",
     ],
     blueprint: {
-      badge: "SYSTEMS & CONCURRENCY // COURSEWORK",
-      subtitle: "JAVA 17 · MULTITHREADING · REENTRANTLOCK · JDBC · JUNIT 5",
+      badge: "CONCURRENCY // COURSEWORK",
+      subtitle: "JAVA 17 · MULTITHREADING · JDBC",
       blocks: [
         {
           tag: "01 / WORKERS",
-          items: [
-            "Concurrent Task Manager",
-            "10,000+ Interleaved Transfers",
-            "High-Contention Stress Engine",
-          ],
-          footer: "JAVA EXECUTORS",
+          items: ["10,000+ Transfers", "Stress Engine"],
+          footer: "EXECUTORS",
         },
         {
-          tag: "02 / LOCK ORDERING",
-          items: [
-            "Strict Natural Resource Order",
-            "Eliminates Circular Wait",
-            "ReentrantLock With Timeouts",
-          ],
-          footer: "ZERO CIRCULAR DEADLOCK",
+          tag: "02 / LOCKING",
+          items: ["Natural Order", "ReentrantLock"],
+          footer: "DEADLOCK-FREE",
         },
         {
-          tag: "03 / AUDIT ENGINE",
-          items: [
-            "Atomic Total Balance Check",
-            "Zero Lost Monetary Updates",
-            "JDBC Isolation Verification",
-          ],
-          footer: "100% BALANCE INTEGRITY",
+          tag: "03 / AUDIT",
+          items: ["Balance Invariant", "JUnit 5 Tested"],
+          footer: "VERIFIED",
         },
       ],
     },
@@ -721,47 +623,47 @@ export function WorkSection() {
           </div>
         </div>
 
-        {/* Project Cards Grid - 7 Projects across 3 Rows */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {/* Project Cards Grid - 7 Projects across Exactly 2 Rows */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {filteredProjects.map((project, index) => {
-            const isFullWidth = index === 0 && activeFilter === "ALL";
+            const isHero = index === 0 && activeFilter === "ALL";
             return (
               <div
                 key={project.id}
                 className={`group relative rounded-sm border border-transparent bg-black overflow-hidden hover:border-white/20 transition-all duration-300 flex flex-col justify-between ${
-                  isFullWidth ? "md:col-span-2 lg:col-span-3" : "col-span-1"
+                  isHero ? "md:col-span-2 lg:col-span-2" : "col-span-1"
                 } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
                 style={{ transitionDelay: `${index * 80}ms` }}
               >
-                {/* Real Architecture Blueprint (Compact Typography) */}
+                {/* Real Architecture Blueprint (Ultra-compact Typography) */}
                 <ProjectArchitectureBlueprint blueprint={project.blueprint} number={project.number} />
 
                 {/* Content Area - Compact, Sleek & Focused */}
-                <div className="p-4 sm:p-5 lg:p-6 flex-1 flex flex-col justify-between">
+                <div className="p-3 sm:p-3.5 flex-1 flex flex-col justify-between">
                   <div>
-                    <h3 className="text-xl sm:text-2xl font-display text-[#F5F5F5] mb-1.5 group-hover:text-white transition-colors duration-200">
+                    <h3 className="text-base sm:text-lg font-display text-[#F5F5F5] mb-1 group-hover:text-white transition-colors duration-200">
                       {project.name}
                     </h3>
 
                     {/* Concise natural description */}
-                    <p className="text-xs sm:text-[13px] text-white/[0.72] leading-normal font-sans font-light mb-3.5">
+                    <p className="text-[11px] text-white/[0.65] leading-snug font-sans font-light mb-2">
                       {project.description}
                     </p>
 
                     {/* Key Contributions / Features */}
-                    <div className="mb-3.5 space-y-1">
+                    <div className="mb-2 space-y-0.5">
                       {project.keyFeatures.map((feat, i) => (
-                        <div key={i} className="flex items-start gap-2 text-[11px] sm:text-xs text-white/[0.60] font-sans">
-                          <Check className="w-3 h-3 text-[#eca8d6] mt-0.5 shrink-0 opacity-70" />
+                        <div key={i} className="flex items-start gap-1.5 text-[10px] text-white/[0.55] font-sans">
+                          <Check className="w-2.5 h-2.5 text-[#eca8d6] mt-0.5 shrink-0 opacity-70" />
                           <span>{feat}</span>
                         </div>
                       ))}
                     </div>
 
                     {/* Tech Badges */}
-                    <div className="flex flex-wrap gap-1.5 mb-5">
+                    <div className="flex flex-wrap gap-1 mb-3">
                       {project.stack.map((t) => (
-                        <span key={t} className="px-2 py-0.5 text-[10px] font-mono rounded-sm bg-white/[0.02] border border-white/[0.07] text-white/[0.50]">
+                        <span key={t} className="px-1.5 py-0.5 text-[8px] font-mono rounded-sm bg-white/[0.02] border border-white/[0.07] text-white/[0.45]">
                           {t}
                         </span>
                       ))}
@@ -769,16 +671,16 @@ export function WorkSection() {
                   </div>
 
                   {/* Bottom Action CTA */}
-                  <div className="pt-3 border-t border-transparent group-hover:border-white/[0.07] transition-colors duration-300 flex items-center justify-between">
-                    <span className="text-[10px] font-mono text-white/[0.42] uppercase tracking-wider">
-                      {project.hasDeepCaseStudy ? "FULL ARCHITECTURAL SPECIFICATION" : "TECHNICAL SUMMARY"}
+                  <div className="pt-2 border-t border-transparent group-hover:border-white/[0.07] transition-colors duration-300 flex items-center justify-between">
+                    <span className="text-[9px] font-mono text-white/[0.35] uppercase tracking-wider">
+                      {project.hasDeepCaseStudy ? "FULL SPEC" : "SUMMARY"}
                     </span>
                     <Button
                       onClick={() => setSelectedProject(project)}
-                      className="rounded-sm font-mono text-[11px] px-3.5 py-1 bg-white text-black hover:bg-white/90 transition-all flex items-center gap-1.5 h-7"
+                      className="rounded-sm font-mono text-[10px] px-2.5 py-0.5 bg-white text-black hover:bg-white/90 transition-all flex items-center gap-1 h-6"
                     >
                       <span>{project.ctaText}</span>
-                      <ChevronRight className="w-3 h-3" />
+                      <ChevronRight className="w-2.5 h-2.5" />
                     </Button>
                   </div>
                 </div>

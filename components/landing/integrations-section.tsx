@@ -72,7 +72,7 @@ export function IntegrationsSection() {
         <span className={`inline-flex items-center gap-4 text-xs md:text-sm font-mono text-muted-foreground mb-4 uppercase tracking-wider justify-center transition-all duration-700 ${
           isVisible ? "opacity-100" : "opacity-0"
         }`}>
-          06 // Technology &amp; Toolchain
+          07 // Production Stack &amp; Toolchain
         </span>
 
         <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-display tracking-tight leading-[1.04] transition-all duration-1000 ${
